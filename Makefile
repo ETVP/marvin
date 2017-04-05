@@ -69,7 +69,7 @@ setup_caffe: restore_caffe
 	@echo "=> Hacking $(CAFFE_ROOT)/Makefile"
 	@sed -i.origin "s/hdf5/hdf5_serial/g" $(CAFFE_ROOT)/Makefile
 	@echo "=> Coping Makefile.config"
-	@cp $(PROJECT_ROOT)/caffe.makefile.config $(CAFFE_ROOT)
+	@cp $(PROJECT_ROOT)/caffe.makefile.config $(CAFFE_ROOT)/Makefile.config
 	@echo "=> Injecting tools"
 	@cp $(PROJECT_ROOT)//tools/converter_caffe/caffemodel2marvin.cpp $(CAFFE_ROOT)/tools
 
