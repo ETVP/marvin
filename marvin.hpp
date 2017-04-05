@@ -8,6 +8,10 @@
  * ----------------------------------------------------------------------------
  */
 
+#if (!defined DATATYPE)
+    #define DATATYPE 0
+#endif
+
 #if DATATYPE==0
     #pragma message "Compiling using StorageT=half ComputeT=float"
     #define StorageT half
@@ -91,7 +95,9 @@
 #include <cudnn.h>
 #include <sys/time.h>
 
-#define USE_OPENCV 0
+#if (!defined USE_OPENCV)
+    #define USE_OPENCV 0
+#endif
 
 #if USE_OPENCV
 #include "opencv2/highgui/highgui.hpp"
