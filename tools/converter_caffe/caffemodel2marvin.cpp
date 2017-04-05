@@ -12,7 +12,14 @@
 #include "caffe/proto/caffe.pb.h"
 #include "caffe/util/db.hpp"
 #include "caffe/util/io.hpp"
-#include "caffe/vision_layers.hpp"
+
+/**
+ * "vision_layers.hpp" IS DEPRECATED
+ * and marvin dose not need it anymore
+ * anyway, here's a workaround:
+ * #include "caffe/vision_layers.hpp"
+ * see http://caffe.berkeleyvision.org/doxygen/vision__layers_8hpp_source.html for details
+ */
 
 using caffe::Blob;
 using caffe::Caffe;
