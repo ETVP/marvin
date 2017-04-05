@@ -1,26 +1,27 @@
 # Marvin
 
-Marvin is a GPU-only neural network framework made with simplicity, hackability, speed, memory consumption, and high dimensional data in mind.
+> Marvin is a GPU-only neural network framework made with simplicity, hackability, speed, memory consumption, and high dimensional data in mind.
 
-## Dependences
+`ETVP/marvin` 是原项目的一个分支，旨在解决原有项目遗留的各种兼容性问题。本分支假设目标机器的环境为
 
-Download [CUDA 7.5](https://developer.nvidia.com/cuda-downloads) and [cuDNN 5.1](https://developer.nvidia.com/cudnn). You will need to register with NVIDIA. Below are some additional steps to set up cuDNN 5.1. **NOTE** We highly recommend that you install different versions of cuDNN to different directories (e.g., ```/usr/local/cudnn/vXX```) because different software packages may require different versions.
++ Ubuntu 16.04
++ CUDA 8.0
++ cuDNN 5.1
 
-```shell
-LIB_DIR=lib$([[ $(uname) == "Linux" ]] && echo 64)
-CUDNN_LIB_DIR=/usr/local/cudnn/v5.1/$LIB_DIR
-echo LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDNN_LIB_DIR >> ~/.profile && ~/.profile
+并基于此假设重写了 `Makefile` 和对应的 `Makefile.config`。
 
-tar zxvf cudnn*.tgz
-sudo cp cuda/$LIB_DIR/* $CUDNN_LIB_DIR/
-sudo cp cuda/include/* /usr/local/cudnn/v5.1/include/
-```
+## 获取与构建
 
-## Compilation
+`ETVP/marvin` 将 `BVLC/caffe` 作为一个 submodule 添加到当前项目。
+以下过程将完全自动的构建`Marvin`和`Caffe`:
 
 ```shell
-./compile.sh
+git clone --recursive https://github.com/ETVP/marvin.git
+cd marvin
+make
 ```
+
+如有需要，请定制`Makefile.config`。
 
 ## MNIST
 
